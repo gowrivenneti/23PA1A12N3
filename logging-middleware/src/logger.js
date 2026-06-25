@@ -7,7 +7,7 @@ const LOG_API = "http://4.224.186.213/evaluation-service/logs";
 
 export async function Log(stack, level, pkg, message) {
   try {
-    console.log("Token Loaded:", process.env.ACCESS_TOKEN ? "YES" : "NO");
+    console.log("Token Loaded:", process.env.VITE_ACCESS_TOKEN ? "YES" : "NO");
 
     const response = await axios.post(
       LOG_API,
@@ -19,7 +19,7 @@ export async function Log(stack, level, pkg, message) {
       },
       {
         headers: {
-          Authorization: `Bearer ${process.env.ACCESS_TOKEN.trim()}`,
+          Authorization: `Bearer ${process.env.VITE_ACCESS_TOKEN.trim()}`,
           "Content-Type": "application/json",
         },
       }
